@@ -1,0 +1,2 @@
+/register: !include paths/register.yaml
+/login: !include paths/login.yaml

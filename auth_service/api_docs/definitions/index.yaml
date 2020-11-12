@@ -1,0 +1,3 @@
+Login: !include definitions/login.yaml
+Register: !include definitions/register.yaml
+Error: !include definitions/error.yaml

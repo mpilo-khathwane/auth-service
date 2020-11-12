@@ -1,0 +1,26 @@
+post:
+  operationId: register
+  summary: Register a user
+  description: Register users with auth service
+  tags:
+    - authenticate
+  parameters:
+    - name: login_details
+      in: body
+      schema:
+        type: object
+        properties:
+          username:
+            type: string
+          password:
+            type: string
+      required: true
+  responses:
+    200:
+      description: Token
+      schema:
+        $ref: '#/definitions/Register'
+    default:
+      description: Unexpected Error
+      schema:
+        $ref: '#/definitions/Error'

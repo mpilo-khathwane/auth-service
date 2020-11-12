@@ -1,0 +1,127 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Auth Service",
+    "description": "Auth Service",
+    "version": "0.0.1"
+  },
+  "host": "auth-service.com",
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "Auth Service",
+      "description": "Auth Service"
+    }
+  ],
+  "paths": {
+    "/register": {
+      "post": {
+        "operationId": "register",
+        "summary": "Register a user",
+        "description": "Register users with auth service",
+        "tags": [
+          "authenticate"
+        ],
+        "parameters": [
+          {
+            "name": "login_details",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Token",
+            "schema": {
+              "$ref": "#/definitions/Register"
+            }
+          },
+          "default": {
+            "description": "Unexpected Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "operationId": "login",
+        "summary": "Authenticate a user",
+        "description": "Authenticate a users username and password hash to obtain permissions",
+        "tags": [
+          "authenticate"
+        ],
+        "parameters": [
+          {
+            "name": "login_details",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Token",
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          },
+          "default": {
+            "description": "Unexpected Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Login": {
+      "type": "object"
+    },
+    "Register": {
+      "type": "object"
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

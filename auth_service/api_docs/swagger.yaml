@@ -1,0 +1,13 @@
+swagger: '2.0'
+info: !include info/index.yaml
+host: auth-service.com
+schemes:
+  - http
+produces:
+  - application/json
+tags:
+  - name: Auth Service
+    description: Auth Service
+paths: !include paths/index.yaml
+definitions: !include definitions/index.yaml
+
