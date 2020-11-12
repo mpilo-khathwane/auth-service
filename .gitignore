@@ -107,4 +107,4 @@ venv.bak/
 .vscode
 
 # Other
-.*DS_Store
+*.DS_Store
